@@ -1,5 +1,7 @@
 from pyrogram.types import ReplyKeyboardMarkup
+
 # --- [Main Keyboard] --- #
+
 main_keyboard = ReplyKeyboardMarkup(
                 [
                     ["Gif" , "Image"],
@@ -11,6 +13,7 @@ main_keyboard = ReplyKeyboardMarkup(
 
 
 # --- [Gif Keyboards] --- #
+
 gif_keyboard= ReplyKeyboardMarkup(
     [
         ["baka", "bite", "blush", "bored"],
@@ -26,7 +29,9 @@ gif_keyboard= ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
+
 # --- [Image Keyboards] --- #
+
 image_keyboard= ReplyKeyboardMarkup(
     [
         ["husbando", "kitsune", "neko", "waifu"],
