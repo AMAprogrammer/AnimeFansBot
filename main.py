@@ -37,6 +37,10 @@ async def Main_handler(client , message):
         
         await Send_gif_request(chat_id, text)
         
+    elif text == "Anime":
+        
+        await random_anime(chat_id)
+        
     elif text == "cancel":
         
         await main_menu(chat_id)

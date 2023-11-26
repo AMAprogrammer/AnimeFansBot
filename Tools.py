@@ -1,6 +1,7 @@
 from requests import get
 from BotConfig import *
 from keyboards import *
+from texts import *
 
 
 # --- [ Main Menu ] --- #
@@ -29,3 +30,44 @@ async def Send_gif_request(chat_id , text):
     result = result['results'][0]['url']
     
     await bot.send_animation(chat_id , result , caption = text)
+    
+    
+
+# --- [ Random Anime ] --- #
+
+async def random_anime(chat_id):
+    
+    result = get("https://api.jikan.moe/v4/random/anime")
+    result = result.json()
+    
+    title = result["data"]["title"]
+
+    title_e = result["data"]["title_english"]
+    
+    image = result["data"]["images"]["jpg"]["large_image_url"]
+    
+    synopsis = result["data"]["synopsis"]
+    
+    genres:list = result["data"]["genres"]
+        
+    Genres = []
+    
+    genres_count = genres.__len__()
+        
+    if genres_count == 0:
+        
+        GenreS = "None"
+    
+    else:
+        
+        for i in range(0,genres_count):
+        
+            Genres.append("\n#")
+            Genres.append(genres[i]["name"])
+        
+        GenreS = "".join(Genres)
+        
+        
+    score = result["data"]["score"]
+    
+    await bot.send_photo(chat_id,image,caption = anime_text.format(title,title_e,GenreS,synopsis,score))

@@ -19,3 +19,21 @@ gif_category = ["baka", "bite", "blush", "bored",
 "stare", "think", "thumbsup", "tickle",
 "wave", "wink", "yeet", "pat",
 "hug", "kick","kiss", "poke"]
+
+
+
+
+# --- [ Anime recommand text ] --- #
+
+anime_text = """
+نام اصلی : {}
+
+نام انگلیسی : {}
+
+ژانر : {}
+
+خلاصه :\n{}
+
+امتیاز : {}
+
+"""
