@@ -1,8 +1,9 @@
 from pyrogram import Client
+from local_BotConfig import *
 
-api_id = 21836511
-api_hash = '3746d12b39de000246f8b0592e8181aa'
-bot_token = '6622914119:AAHEVoYfsEjiEbdJ7rKZmIQi_i9ZiP7UDew'
+api_id = api_ID
+api_hash = api_HASH
+bot_token = token
 
 bot = Client(
     "AnimeBot",
