@@ -46,7 +46,20 @@ async def random_anime(chat_id):
     
     image = result["data"]["images"]["jpg"]["large_image_url"]
     
-    synopsis = result["data"]["synopsis"]
+    synopsis:str = result["data"]["synopsis"]
+    try:
+        
+        synopsis_len = synopsis.__len__()
+        
+    except AttributeError:
+
+        synopsis_len = 0
+        synopsis = "None"
+        
+    if synopsis_len > 500:
+        
+        synopsis = synopsis[:500]+'...'
+    
     
     genres:list = result["data"]["genres"]
         

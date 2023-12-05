@@ -5,8 +5,7 @@ from pyrogram.types import ReplyKeyboardMarkup
 main_keyboard = ReplyKeyboardMarkup(
                 [
                     ["Gif" , "Image"],
-                    ["Anime" , "Manga"],
-                    ["Photo to Anime Art"]
+                    ["Anime"]
                 ],
                 resize_keyboard=True
             )
