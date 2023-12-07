@@ -109,12 +109,12 @@ async def order_cap(result):
         caption += f"\nEnglish Name : {title_e}"
         
     if GenreS != None:
-        caption += f"\nGenre(s) :{GenreS}"
+        caption += f"\n\nGenre(s) :{GenreS}"
         
     if synopsis != None:
-        caption += f"\nSynopsis :\n{synopsis}"
+        caption += f"\n\nSynopsis :\n{synopsis}"
         
     if score != None:
-        caption += f"\nScore : {score}"
+        caption += f"\n\nScore : {score}"
         
     return image , caption
