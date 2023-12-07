@@ -26,14 +26,14 @@ gif_category = ["baka", "bite", "blush", "bored",
 # --- [ Anime recommand text ] --- #
 
 anime_text = """
-نام اصلی :\n{}
+Name:\n{}
 
-نام انگلیسی :\n{}
+English name:\n{}
 
-ژانر : {}
+Genre(s): {}
 
-خلاصه :\n{}
+synopsis :\n{}
 
-امتیاز :\n{}
+Score :\n{}
 
 """

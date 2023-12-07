@@ -36,10 +36,26 @@ async def Send_gif_request(chat_id , text):
 # --- [ Random Anime ] --- #
 
 async def random_anime(chat_id):
+    result = await anime_req()   
+    image , caption = await order_cap(result)
+    await bot.send_photo(chat_id,image,caption = caption)
     
-    result = get("https://api.jikan.moe/v4/random/anime")
-    result = result.json()
     
+    
+# --- [ Anime Request ] --- #
+
+async def anime_req():
+    while True:
+        result = get("https://api.jikan.moe/v4/random/anime")
+        result = result.json()
+        r_type = result["data"]["type"]
+        if r_type != "Music":
+            return result
+
+# --- [Ordering Random Anime Caption ] --- #
+
+async def order_cap(result):
+            
     title = result["data"]["title"]
 
     title_e = result["data"]["title_english"]
@@ -54,7 +70,7 @@ async def random_anime(chat_id):
     except AttributeError:
 
         synopsis_len = 0
-        synopsis = "None"
+        synopsis = None
         
     if synopsis_len > 500:
         
@@ -69,18 +85,36 @@ async def random_anime(chat_id):
         
     if genres_count == 0:
         
-        GenreS = "None"
+        GenreS = None
     
     else:
         
         for i in range(0,genres_count):
         
             Genres.append("\n#")
-            Genres.append(genres[i]["name"])
+            genres_name:str = genres[i]["name"]
+            Genres.append(genres_name.replace(" ","_"))
         
         GenreS = "".join(Genres)
         
         
     score = result["data"]["score"]
     
-    await bot.send_photo(chat_id,image,caption = anime_text.format(title,title_e,GenreS,synopsis,score))
+    
+    caption = ''
+    if title != None:
+        caption += f"Name : {title}"
+        
+    if title_e != None:
+        caption += f"\nEnglish Name : {title_e}"
+        
+    if GenreS != None:
+        caption += f"\nGenre(s) :{GenreS}"
+        
+    if synopsis != None:
+        caption += f"\nSynopsis :\n{synopsis}"
+        
+    if score != None:
+        caption += f"\nScore : {score}"
+        
+    return image , caption
