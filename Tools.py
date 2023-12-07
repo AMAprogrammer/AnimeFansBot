@@ -49,7 +49,7 @@ async def anime_req():
         result = get("https://api.jikan.moe/v4/random/anime")
         result = result.json()
         r_type = result["data"]["type"]
-        if r_type != "Music":
+        if r_type in ["Monie","TV"]:
             return result
 
 # --- [Ordering Random Anime Caption ] --- #
