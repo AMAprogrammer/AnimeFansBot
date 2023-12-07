@@ -72,9 +72,9 @@ async def order_cap(result):
         synopsis_len = 0
         synopsis = None
         
-    if synopsis_len > 500:
+    if synopsis_len > 400:
         
-        synopsis = synopsis[:500]+'...'
+        synopsis = synopsis[:400]+'...'
     
     
     genres:list = result["data"]["genres"]
@@ -100,21 +100,26 @@ async def order_cap(result):
         
     score = result["data"]["score"]
     
+    date = result["data"]["aired"]["prop"]["from"]["year"]
     
-    caption = ''
+    
+    caption = '**● Anime :**'
     if title != None:
-        caption += f"Name : {title}"
+        caption += f"\n\n**• Name :** {title}"
         
     if title_e != None:
-        caption += f"\nEnglish Name : {title_e}"
+        caption += f"\n\n**• English Name :** {title_e}"
         
     if GenreS != None:
-        caption += f"\n\nGenre(s) :{GenreS}"
+        caption += f"\n\n**• Genre(s) :**{GenreS}"
         
     if synopsis != None:
-        caption += f"\n\nSynopsis :\n{synopsis}"
+        caption += f"\n\n**• Synopsis :**\n{synopsis}"
+        
+    if date != None:
+        caption += f"\n\n**• Aired :** {date}"
         
     if score != None:
-        caption += f"\n\nScore : {score}"
+        caption += f"\n\n**■ Score :** {score}"
         
     return image , caption
