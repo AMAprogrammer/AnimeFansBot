@@ -1,7 +1,6 @@
 from requests import get
-from BotConfig import *
-from keyboards import *
-from texts import *
+from BotConfig import bot
+from keyboards import main_keyboard
 
 
 # --- [ Main Menu ] --- #

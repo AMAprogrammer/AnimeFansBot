@@ -1,5 +1,9 @@
 from pyrogram import filters
-from files import *
+from BotConfig import bot
+from texts import main_menu_text
+from keyboards import main_keyboard , gif_keyboard , image_keyboard
+from texts import img_category , gif_category
+from Tools import Send_gif_request , Send_img_request , random_anime , main_menu
 
 
 

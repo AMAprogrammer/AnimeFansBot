@@ -4,6 +4,6 @@
  - Send Image from characters
  - Send random anime information
 
- # Install libraries:
+ # Install libraries
 
  `pip install -r requirements.txt`
